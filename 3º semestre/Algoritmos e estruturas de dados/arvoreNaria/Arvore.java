@@ -28,8 +28,6 @@ public class Arvore<T> {
 		return raiz.pertence2(info);
 	}
 
-
-
 	@Override
 	public String toString() {
 		if (this.vazia()) {
