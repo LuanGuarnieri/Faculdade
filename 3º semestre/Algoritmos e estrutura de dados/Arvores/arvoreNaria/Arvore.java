@@ -37,25 +37,33 @@ public class Arvore<T> {
             return -1;
 
         } else {
-            return altura(getRaiz()); // retornando o metodo privado altura
+            return altura(getRaiz());
+        }
+    }
+
+    public int getAltura2() { // metodo 02
+        if (vazia()) {
+            return -1;
+        } else {
+            return getRaiz().returnAltura();
         }
     }
 
     // feito
     private int altura(NoArvore<T> no) {
-        int menorNo = -1; // criando variavel local
+        int alturaArvore = -1; // criando variavel local
 
         NoArvore<T> aux; // criando nó auxiliar
 
         for (aux = no.getFilho(); aux != null; aux = aux.getIrmao()) { // enquanto aux não for nulo
 
-            int h = altura(aux);
-            if (h > menorNo) {
+            int recebAltura = altura(aux);
+            if (recebAltura > alturaArvore) {
 
-                menorNo = h;
+                alturaArvore = recebAltura;
             }
         }
-        return menorNo + 1;
+        return alturaArvore + 1;
     }
 
     // feito
@@ -71,13 +79,6 @@ public class Arvore<T> {
         return nivelArvore;
     }
 
-    private int menorNo(NoArvore<T> no) { // em produção
-        if (no == no.ehFolha()) {
-            return no.getNivel();
-
-        }
-    }
-
     public boolean isBalanceada() {
         if (getAltura() - menorNo(getRaiz()) == 0
                 || getAltura() - menorNo(getRaiz()) == 1) {
@@ -87,4 +88,7 @@ public class Arvore<T> {
             return false;
         }
     }
+
+    // criar metodo menor nó aqui
+
 }

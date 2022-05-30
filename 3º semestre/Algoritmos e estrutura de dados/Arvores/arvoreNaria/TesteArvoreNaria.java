@@ -62,7 +62,10 @@ public class TesteArvoreNaria {
 
         System.out.println("\n == abaixo == \n");
         System.out.println("\nteste Altura Funcionando " + a.getAltura());
+        System.out.println("\n teste altura 02: " + a.getAltura2());
         System.out.println("\nteste nivel funcionando " + a.getNivel(6));
+
+        System.out.println("\n\n " + n1.g());
 
     }
 }

@@ -21,10 +21,35 @@ public class NoArvore<T> {
 		result += ">";
 
 		if (this.getIrmao() != null) {
-			result += irmao.imprimePre();
+			result += "" + irmao.imprimePre();
 		}
 
 		return result;
+	}
+
+	public int returnAltura() {
+		int altura = 0;
+
+		if (ehFolha()) {
+			altura = getNivel();
+		}
+
+		if (this.getFilho() != null) {
+			int i = filho.returnAltura();
+
+			if (i > altura) {
+				altura = i;
+			}
+		}
+
+		if (this.getIrmao() != null) {
+			int i = irmao.returnAltura();
+			if (i > altura) {
+				altura = i;
+			}
+		}
+
+		return altura;
 	}
 
 	public void inserirFilho(NoArvore<T> filho) {
