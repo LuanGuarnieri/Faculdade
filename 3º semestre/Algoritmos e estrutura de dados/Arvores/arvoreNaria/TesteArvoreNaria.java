@@ -19,7 +19,7 @@ public class TesteArvoreNaria {
         NoArvore<Integer> n13 = new NoArvore<Integer>(13);
         NoArvore<Integer> n14 = new NoArvore<Integer>(14);
         NoArvore<Integer> n15 = new NoArvore<Integer>(15);
-        ;
+
         NoArvore<Integer> n1 = new NoArvore<Integer>(1);
 
         Arvore<Integer> a = new Arvore<>();
@@ -40,11 +40,11 @@ public class TesteArvoreNaria {
         n11.inserirFilho(n14);
         n10.inserirFilho(n15);
 
+        System.out.println("\n---\n");
         System.out.println(" nivel n1 : " + n1.getNivel());
         System.out.println(" nivel n2: " + n2.getNivel());
         System.out.println(" nivel n3: " + n3.getNivel());
         System.out.println(" nivel n4: " + n4.getNivel());
-        System.out.println("---");
         System.out.println(" nivel n5: " + n5.getNivel());
         System.out.println(" nivel n6: " + n6.getNivel());
         System.out.println(" nivel n7: " + n7.getNivel());
@@ -60,12 +60,14 @@ public class TesteArvoreNaria {
         System.out.println("\n == arvore == \n");
         System.out.println(a.toString());
 
-        System.out.println("\n == abaixo == \n");
-        System.out.println("\nteste Altura Funcionando " + a.getAltura());
-        System.out.println("\n teste altura 02: " + a.getAltura2());
-        System.out.println("\nteste nivel funcionando " + a.getNivel(6));
+        System.out.println("\n == TESTES METODOS == ");
+        System.out.println("\nteste getAltura() " + a.getAltura());
+        System.out.println("\n teste getAltura02(): " + a.getAltura2());
+        System.out.println("\nteste getNivel() " + a.getNivel(6));
+        System.out.println("\nteste isBanceada() " + a.isBalanceada());
 
-        System.out.println("\n\n " + n1.g());
+        String i = n1.returnStringNosFolha(); // retirando espaços
+        System.out.println("\n testando  String de nós folhas : " + i);
 
     }
 }
