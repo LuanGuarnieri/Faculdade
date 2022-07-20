@@ -1,0 +1,106 @@
+.mainCadastro{
+    width: 100vw; /*prcentagem da largura da tela*/
+    height: 100vh;
+    background: #201b2c;
+    display: flex;
+    justify-content: center; /*Ajustando eixo X para centro*/
+    align-items: center; /*ajustando no eixo Y para centro*/
+    display: flex;
+    flex-direction: column;
+    color: rgb(56, 228, 79);
+    cursor: default;
+}
+
+.cardCadastro{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 45px;
+    background: #2f2841;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px #00000056;
+    box-sizing: border-box;
+}
+
+.textCadastro{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin-right: 0;
+    box-sizing: border-box;
+    
+   
+}
+
+.textCadastro >input{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: #514869;
+    color: #f0ffffde;
+    font-size: 12px;
+    box-shadow: 0 10px 40px #00000056;
+    outline: none;
+    box-sizing: border-box;
+   
+}
+
+#btnEnviar {
+    width: 10px;
+    padding: 10px 80px 10px 10px;
+    margin: 25px 0px 0px 20px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #2b134b;
+    background: #00ff88;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px #00ff8052;
+}
+
+#btnLimpar {
+    width: 10px;
+    padding: 0px 80px 0px 10px;
+    margin: 25px 0px 0px 0px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #2b134b;
+    background: #00ff88;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px #00ff8052;
+}
+
+.divBtns{
+    display: flex;
+    float: right; /*alinhado a direita*/
+}
+
+#btnEnviar:hover, #btnLimpar:hover{
+    color: #fff;
+    background-color: #0c6e41;
+}
+
+.textCadastro label{
+    color: #f0ffffde;
+    font-size: 20px;;
+}
+
+#msg{
+    padding: 0px 20vw 10vw 0px;
+    margin-top: 20px;
+   
+}
+
+.textCadastroMessage{
+    color: #fff;
+}

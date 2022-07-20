@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Efetuar cadastro</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="CSS/style.css"/>
+        <link rel="stylesheet" href = "CSS/styleCadastro.css"/>
+        <script src="JS/recarregarLogo.js" defer></script> <!--recarregar pelo logo-->
+        <script src="JS/scriptPaginas.js" defer></script>
+        
+
+    </head>
+    <body>
+    </head>
+    <body>
+      <header>
+        <nav>
+          <button id="btnLogo" value="refresh">
+            <a id="logo">BCC ASSISTENCIA TECNICA</a>
+          </button>
+  
+          <ul class="nav-lista">
+            <li><a href="Inicio.html">Inicio</a></li>
+            <li><a href="Contato.html">Contato</a></li>
+            <li><a href="Cadastro.html">Cadastrar</a></li>
+            <li id="entrar">
+              <a href="TelaLogin.html" target="__blank">Login</a>
+            </li>
+            <li><a href="PagHTML.html">Usuarios</a></li>
+            <li>
+              <button id="sair" onclick="logoff()">LOGOFF</button>
+            </li>
+          </ul>
+        </nav>
+  
+        <div id="divOs">
+          <li><a id="OS" href="Os.html" target="__blank">Criar OS</a></li>
+  
+          <b id="usuarioMostrar"> usuario</b>
+          <img src="Icons/usuario.png" width="40px" height="40px" />
+        </div>
+      </header>
+       
+        <div class="mainCadastro">
+            <div class="leftCadastro">
+                <h1>Torne-se nosso cliente</h1>
+                <img id = "imgCadastro" src="Icons/imgCadastro.svg" alt="imagem de cadastro"/>
+            </div>
+
+            <div class="rightCadastro">
+                
+                <h1>Efetuar cadastro</h1>
+
+                <div id = "msgFalse"></div>
+                <div id = "msgTrue"></div>
+                
+                <div class="cardCadastro">
+
+                <form> 
+                    <div class="textCadastro">
+                        <label id="labelNome" for="nomeCompleto">Nome Completo</label>
+                        <input id='nome' onkeyup="verificar()" type="text" name="nomeCompleto" placeholder="Nome completo" required maxlength="30" minlength="5">
+                    </div>
+
+                    <div class="textCadastro">
+                        <label id="labelEmail" for="email">Email</label>
+                        <input id="email" onkeyup="verificar()" type="email" name="email" placeholder="Digite seu email" required maxlength="50">
+                    </div>
+
+                    
+
+                    <div class="textCadastro">
+                        <label id="labelUsuario" for="usuario">Usuario</label>
+                        <input id="usuario" onkeyup="verificar()" type="text" name="usuario" placeholder="Digite seu usuario" required maxlength="15" minlength="5"/>
+                    </div>
+
+                    <div class="textCadastro">
+                        <label id="labelSenha" for="senha">Senha</label>
+                        <input id="senha" onkeyup="verificar()" type="password" name="senha" placeholder="Digite sua senha" required maxlength="20" minlength="5"/>
+                    </div>
+
+                    <div class = "aceitarTermo">
+                        <input id="termo" type="checkbox" required/>
+                        <label id = "frase">Eu li e aceito os <a href="#">termos de uso</a></label>
+                      </div>
+
+                        <div clas= "divBtns">
+                            <button id="btnLimpar" value="Limpar" onclick="recarregarPagina()">Limpar</button>
+                            <button id="btnCadastro" onclick="cadastrar()">Cadastrar</button>
+                        </div>
+                </form>
+                </div>
+
+            </div>
+        </div>
+        <footer class="rodape">
+            <p><a href="Contato.html">Clique aqui, deixe sua opinião!</a></p>
+        </footer>
+    </body>
+    <script >
+  
+      if (sessionStorage.getItem('token') != null){
+        let user = sessionStorage.getItem('usuario').replace("\"" , ""); 
+        let user2 = user.substring(0 , user.length -1); 
+        document.getElementById('usuarioMostrar').innerHTML = user2;    
+  
+        document.getElementById('entrar').style.display = "none";
+        document.getElementById('sair').style.display = "flex";
+        document.getElementById('divOs').style.display = "flex";
+  
+      }
+  
+      function logoff(){
+      sessionStorage.clear('token')
+      sessionStorage.clear('usuario');
+      location.reload();
+  }
+  
+    </script>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>tela inicio</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/styleInicio.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button id="btnLogo" value="refresh">
+          <a id="logo">BCC ASSISTENCIA TECNICA</a>
+        </button>
+
+        <ul class="nav-lista">
+          <li><a href="Inicio.html">Inicio</a></li>
+          <li><a href="Contato.html">Contato</a></li>
+          <li><a href="Cadastro.html">Cadastrar</a></li>
+          <li id="entrar">
+            <a href="TelaLogin.html" target="__blank">Login</a>
+          </li>
+          <li><a href="PagHTML.html">Usuarios</a></li>
+          <li>
+            <button id="sair" onclick="logoff()">LOGOFF</button>
+          </li>
+        </ul>
+      </nav>
+
+      <div id="divOs">
+        <li><a id="OS" href="Os.html" target="__blank">Criar OS</a></li>
+
+        <b id="usuarioMostrar"> usuario</b>
+        <img src="Icons/usuario.png" width="40px" height="40px" />
+      </div>
+    </header>
+    <div id="back">
+      <div id="text">
+        <p>
+          A TecnoMega Assistência Técnica foi fundada em 2020. Desde o nosso
+          primeiro dia de trabalho oferecemos serviços de reparo de alta
+          qualidade de aparelhos celulares para os moradores de Senador Canedo,
+          Goiânia e região metropolitana. Priorizamos o uso de peças originais
+          em nossos reparos. Estamos aqui para resolver seu problema, venha em
+          nossa loja fazer seu orçamento!
+        </p>
+
+        <p>
+          Com o intuito de modernizarmos nosso negócio, estendemos o atendimento
+          e oferecemos produtos de eletrônicos em geral para clientes de todo
+          Brasil pela internet, por site, e-commerce, a fim de que cheguemos ao
+          cliente e facilite o processo para resolver seu problema de onde
+          estiver.
+        </p>
+        <p>
+          Nosso trabalho é pautado pela “arte de servir”, e baseado nesse
+          principio de atendimento e política de compromisso, temos como
+          primícias: O ideal de servir e atender com a mais alta qualidade e
+          satisfação nossos clientes.
+        </p>
+        <p>
+          A nossa missão da excelência no atendimento, tem como objetivo o
+          desenvolvimento da conscientização e compromisso de nossos
+          colaboradores, de que o atendimento deve ser pautado, através da
+          afirmação expressa pelo desejo de propiciar um atendimento que traga
+          soluções, satisfação e tranquilidade para os nossos clientes.
+        </p>
+    </div>
+
+    
+  </div>
+</body>
+<footer class="rodape">
+  <b><a href="Contato.html">Clique aqui, deixe sua opinião!</a></b>
+</footer>
+  <script>
+    function enviado() {
+      let nome = document.getElementById("name");
+      let email = document.getElementById("email");
+
+      if (
+        nome.value != "" &&
+        nome.value > 5 &&
+        email.value != "" &&
+        email.value.inclues("@")
+      ) {
+        window.alert("Email enviado");
+      } else {
+        window.alert("Dados do usuario incorretos");
+      }
+    }
+
+    if (sessionStorage.getItem("token") != null) {
+      let user = sessionStorage.getItem("usuario").replace('"', ""); // tirando a primeira aspas
+      let user2 = user.substring(0, user.length - 1); //retirando a segunda aspas
+      document.getElementById("usuarioMostrar").innerHTML = user2;
+
+      document.getElementById("entrar").style.display = "none";
+      document.getElementById("sair").style.display = "flex";
+      document.getElementById("divOs").style.display = "flex";
+    }
+
+    function logoff() {
+      sessionStorage.clear("token");
+      sessionStorage.clear("usuario");
+      location.reload();
+    }
+  </script>
+</html>

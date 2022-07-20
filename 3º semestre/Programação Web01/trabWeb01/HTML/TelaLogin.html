@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>Tela de login</title>
+    <meta charset="utf-8" />
+
+    <!--CSS-->
+    <link href="CSS/styleLogin.css" rel="stylesheet" />
+    <link href="CSS/style.css" rel="stylesheet" />
+
+    <!--SCRIPTS-->
+    <script src="JS/recarregarLogo.js" defer></script>
+    <script src="JS/scriptLogin.js" defer></script>
+   
+    
+  </header>
+  <body>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button id="btnLogo" value="refresh">
+          <a id="logo">BCC ASSISTENCIA TECNICA</a>
+        </button>
+
+        <ul class="nav-lista">
+          <li><a href="Inicio.html">Inicio</a></li>
+          <li><a href="Contato.html">Contato</a></li>
+          <li><a href="Cadastro.html">Cadastrar</a></li>
+          <li id="entrar">
+            <a href="TelaLogin.html" target="__blank">Login</a>
+          </li>
+          <li><a href="PagHTML.html">Usuarios</a></li>
+          <li>
+            <button id="sair" onclick="logoff()">LOGOFF</button>
+          </li>
+        </ul>
+      </nav>
+
+      <div id="divOs">
+        <li><a id="OS" href="Os.html" target="__blank">Criar OS</a></li>
+
+        <b id="usuarioMostrar"> usuario</b>
+        <img src="Icons/usuario.png" width="40px" height="40px" />
+      </div>
+    </header>
+
+    <div class="main-login">
+      <div class="left-login">
+        <h1>Faça seu login</h1>
+        <br />
+        <h1>E se divirta com a gente!</h1>
+        <img id="imagemLogin" src="Icons/imgLogin.svg" alt="imagem de Login" />
+      </div>
+
+      <div class="right-Login">
+        <div class="card-login">
+          <h1>LOGIN</h1>
+          <div id="msgError"></div>
+          <div id="msgValided"></div>
+
+          <div class="efetuarLogin">
+            <label id="userLabel" for="usuario">Usuario</label>
+            <input
+              id="usuario"
+              type="text"
+              name="usuario"
+              placeholder="Digite seu usuario"
+            />
+          </div>
+
+          <div class="efetuarLogin">
+            <label id="senhaLabel" for="senha">Senha</label>
+            <input
+              id="senha"
+              type="password"
+              name="senha"
+              placeholder="Digite sua senha"
+            />
+          </div>
+
+          <div class="divBtns">
+            <button id="btnLimpar" onclick="recarregarPagina()">Limpar</button>
+            <button id="btnLogin" onclick="entrar()">Login</button>
+          </div>
+
+          <b><a href="Cadastro.html">Não possuo cadastro</a></b>
+        </div>
+      </div>
+    </div>
+
+    <footer class="rodape">
+      <p><a href="Contato.html">Clique aqui, deixe sua opinião!</a></p>
+      <br />
+      <p>Alunos : Luan Guarnieri e Leonardo Rosa</p>
+    </footer>
+  </body>
+
+  <script >
+  
+    if (sessionStorage.getItem('token') != null){
+      let user = sessionStorage.getItem('usuario').replace("\"" , ""); 
+      let user2 = user.substring(0 , user.length -1); 
+      document.getElementById('usuarioMostrar').innerHTML = user2;    
+
+      document.getElementById('entrar').style.display = "none";
+      document.getElementById('sair').style.display = "flex";
+      document.getElementById('divOs').style.display = "flex";
+
+    }
+
+    function logoff(){
+    sessionStorage.clear('token')
+    sessionStorage.clear('usuario');
+    location.reload();
+}
+
+  </script>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Criar OS</title>
+    <link rel="stylesheet" href="CSS/contato.css" />
+    <link rel="stylesheet" href="CSS/style.css" />
+
+    <script src="JS/validarLogin.js" defer></script>
+    <script src="JS/recarregarLogo.js" defer></script>
+    
+
+    <script>
+      function enviado(){
+        window.alert('OS REGISTRADA COM SUCESSO!');
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button id="btnLogo" value="refresh">
+          <a id="logo">BCC ASSISTENCIA TECNICA</a>
+        </button>
+
+        <ul class="nav-lista">
+          <li><a href="Inicio.html">Inicio</a></li>
+          <li><a href="Contato.html">Contato</a></li>
+          <li><a href="Cadastro.html">Cadastrar</a></li>
+          <li id="entrar">
+            <a href="TelaLogin.html" target="__blank">Login</a>
+          </li>
+          <li><a href="PagHTML.html">Usuarios</a></li>
+          <li>
+            <button id="sair" onclick="sair()">LOGOFF</button>
+          </li>
+        </ul>
+      </nav>
+      
+      <div id="divOs">
+        
+        <li><a id="OS" href="Os.html" target="__blank">Criar OS</a></li>
+        
+        <b id = 'usuarioMostrar'> usuario</b> <img src="Icons/usuario.png" width="40px" height="40px"/>
+      </div>
+  </header>
+
+    <div class="mainCadastro">
+      <h1>Abrir uma OS</h1>
+
+      <div class="cardCadastro">
+        <form action="#" class="form">
+          <div class="textCadastro">
+            <label for="name">Nome</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              required
+              placeholder="Digite seu nome"
+            />
+          </div>
+
+          <div class="textCadastro">
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              placeholder="Digie seu email"
+            />
+          </div>
+
+          <div class="textCadastro">
+            <label for="message">Mensagem</label>
+            <div class="textCadastroMessage">
+                <textarea name="message" id="msg" required placeholder="Digite aqui o ocorrido"></textarea>
+            </div>
+          </div>
+
+            <div class="divBtns">
+            <button type="submit" id="btnLimpar" onclick="recarregarPagina()">Limpar</button>
+            <button type="submit" id="btnEnviar" onclick="enviado()">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer class="rodape">
+      <p><a href="Contato.html">Clique aqui, deixe sua opinião!</a></p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+.main-login{
+    width: 100vw; /*vw = largura da view port*/
+    height: 100vh;
+    background-color:  #201b2c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-login{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.left-login > h1{
+    font-size: 3vw;
+    color:#77ffc0;
+}
+
+#imagemLogin{
+    width: 30vw;
+}
+
+.right-login{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+.card-login{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background:#2f2841;
+    border-radius: 20px;    
+    box-shadow: 0px 10px 40px #00000056;
+}
+
+.card-login >h1{
+    color:#00ff88;
+    font-weight: 800;
+    margin: 0;
+}
+
+.efetuarLogin{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin : 10px 0;
+}
+
+.efetuarLogin > input{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: #514869;
+    color: #f0ffffde;
+    font-size: 12pt;
+    box-shadow: 0px 10px 40px #00000056;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.efetuarLogin >label{
+    color: #f0ffffde;
+    margin-bottom: 20px;font-size: 20px;
+
+}
+
+.efetuarLogin >input::placeholder{
+    color: #f0ffff94;
+}
+
+#btnLogin{
+    width: 90%;
+    padding: 5px 10px 5px 10px;
+    margin: 0px 0px 0px 15px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: #2b134b;
+    background: #00ff88;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px #00ff8052;
+    
+}
+
+#btnLimpar{
+    width: 90%;
+    border: none;
+    padding: 5px 10px 5px 10px;
+    margin: 0px 0px 0px 40px;
+    border-radius: 10px;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: #2b134b;
+    background: #00ff88;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px #00ff8052;
+    
+}
+#btnLogin:hover, #btnLimpar:hover{
+    color: #fff;
+    background-color: #0c6e41;
+}
+
+.divBtns{
+    display: flex;
+    margin: 20px 0px 20px 0px;
+}
+
+#msgError{
+    text-align: center;
+    color: #e2e1e1;
+    background-color: #f51414;
+    padding-left: 3%;
+    padding-top: 10px;
+    padding-right: 3%;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    display: none;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    
+}
+
+#msgValided{
+    text-align: center;
+    color: #15ff00;
+    background-color: #87e787da;
+    padding-left: 3%;
+    padding-top: 10px;
+    padding-right: 3%;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    display: none;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;    
+}
+
+#OS{
+    background-color: transparent;
+    margin-right: 0%;
+    display: flex;
+    color: #00ff88;
+    border: none;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+b{
+    color: #ffffff;
+}
+
+b a:hover{
+    color: #00ff88;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow: 0px 10px 40px -12px #00ff8052;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+#userLabel, #senhaLabel{
+    margin-bottom: 4px;
+}
+

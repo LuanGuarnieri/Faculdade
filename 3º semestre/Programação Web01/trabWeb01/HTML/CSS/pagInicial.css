@@ -1,0 +1,222 @@
+#tblListar td, #tblListar th {
+    border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+    position: relative;
+
+}
+
+#tblListar{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 60vw;
+    border: 3px solid #00ff88;
+    background-color: #ffffff;
+    
+}
+
+#tblListar th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+#tblListar th{
+    text-align: center;
+}
+
+#tdNome{
+    background-color: #04AA6D;
+    color: white;
+}
+
+#tdUser{
+    background-color: #04AA6D;
+    color: white;
+}        
+
+#tdEmail{
+    background-color: #04AA6D;
+    color: white;
+}
+
+#tdExcluir{
+    background-color: #04AA6D;
+    color: white;
+}
+
+#tdEditar{
+    background-color: #04AA6D;
+    color: white;
+}
+
+
+#DeleteItem{
+
+    background-color: #04AA6D;
+    right: 100px;
+    top: 140px;
+    position: absolute;
+}
+
+#btnEditar{
+
+    background-color: #04AA6D;
+    right: 200px;
+    top: 140px;
+    position: absolute;
+}
+#lixeira{
+    height: 35px;
+    
+}
+
+#lixeira:hover{
+    cursor: pointer;
+}
+
+#editar:hover{
+    cursor: pointer;
+}
+
+#editar{
+    height: 35px;
+}
+
+.cardTabela{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0px 2% 0px 
+}
+
+body{
+    background-color: #201b2c;
+}
+
+
+/* a partir daqui*/
+
+.alertbackgroud {
+    position: absolute;   
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+#formEditar{
+    background-color: #23232e;
+    color: #00ff88;
+    padding: 20px;
+    border: 3px solid #00ff88;
+    border-radius: 10px;
+    font-weight: 900;
+    box-shadow: 0 10px 50px #00000056;
+}
+
+.alert{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 20px;
+    width: 100vw;
+    margin: 5% 0px 5% 0px;
+    z-index: 9999; /*sobreponto o elemento*/
+}
+
+.textCadastro{
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+    margin-top: 10px;
+}
+
+.textCadastro >input{
+    width: 120%;
+    border-bottom: solid rgb(241, 57, 57);
+    border-radius: 10px;
+    padding: 15px;
+    background: #514869;
+    color: #f0ffffde;
+    font-size: 12px;
+    box-shadow: 0 10px 40px #00000056;
+    outline: none;
+    box-sizing: border-box;
+   
+}
+
+.textCadastro > label{
+    color: #f0ffffde;
+    
+    font-size: 20px;
+}
+
+#bntsalvar, #bntcancelar{ 
+    
+    padding: 4px 5px 4px 5px;
+    float: right;
+    margin: 15px 5px 0px 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none; 
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #2b134b;
+    background: #00ff88;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px #00ff8052;
+    
+}
+
+#bntsalvar:hover, #bntcancelar:hover{
+    color: #fff;
+    background-color: #0c6e41;
+}
+
+h2{
+    background-color: #00ff8881;
+    color: #ffffff;
+    padding: 0px 0px 0px 20px;
+    border-radius: 5px;
+    cursor:default;
+}
+
+caption{
+    color: #00ff88;
+    font-size: 30px;
+    font-weight: 900;
+    margin: 0px 0px 10px 0px;
+    border-bottom: 3px solid #00ff88 ;
+}
+
+
+.pg{
+   text-align: center;
+   margin: 0px 0px 40px 0px;
+}
+
+.pg button {
+    padding: 0px 8px 0px 8px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.pg button:hover{
+    color: #00ff88;
+}
+
+#pagAll{
+    margin: 10px 0px 0px 0px;
+}
+

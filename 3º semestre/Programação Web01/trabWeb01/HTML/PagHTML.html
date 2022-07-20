@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Usuario</title>
+    <link href="CSS/style.css" rel="stylesheet" />
+    <link href="CSS/pagInicial.css" rel="stylesheet" />
+    <script src="JS/recarregarLogo.js" defer></script>
+    <!--recarregar pelo logo-->
+    <script src="JS/scriptPaginas.js" defer></script>
+    <script src="JS/validarLogin.js" defer></script>
+  </head>
+  <body>
+  </head>
+  <body>
+    <script>document.getElementById('alert').style.display = 'none' </script>
+    <header>
+      <nav>
+        <button id="btnLogo" value="refresh">
+          <a id="logo">BCC ASSISTENCIA TECNICA</a>
+        </button>
+
+        <ul class="nav-lista">
+          <li><a href="Inicio.html">Inicio</a></li>
+          <li><a href="Contato.html">Contato</a></li>
+          <li><a href="Cadastro.html">Cadastrar</a></li>
+          <li id="entrar">
+            <a href="TelaLogin.html" target="__blank">Login</a>
+          </li>
+          <li><a href="PagHTML.html">Usuarios</a></li>
+          <li>
+            <button id="sair" onclick="sair()">LOGOFF</button>
+          </li>
+        </ul>
+      </nav>
+
+      <div id="divOs">
+        <li><a id="OS" href="Os.html" target="__blank">Criar OS</a></li>
+
+        <b id="usuarioMostrar"> usuario</b>
+        <img src="Icons/usuario.png" width="40px" height="40px" />
+      </div>
+    </header>
+    
+    <!--começa-->
+
+    <div id="alertbackgroud" class="alertbackgroud">
+      <div class="alert">
+        <form id="formEditar">
+          <h2>Alteração Dados</h2>
+
+          <div class="textCadastro">
+            <label id="labelNome" for="nomeCompleto">Nome Completo</label>
+            <input
+              id="nomeAlert"
+              onkeyup="verificarAlert()"
+              type="text"
+              name="nomeCompleto"
+              placeholder="Nome completo"
+              required
+              maxlength="30"
+              minlength="5"
+            />
+          </div>
+
+          <div class="textCadastro">
+            <label id="labelEmail" for="email">Email</label>
+            <input
+              id="emailAlert"
+              onkeyup="verificarAlert()"
+              type="email"
+              name="email"
+              placeholder="Digite seu email"
+              required
+              maxlength="50"
+            />
+          </div>
+
+          <div class="textCadastro">
+            <label id="labelUsuario" for="usuario">Usuario</label>
+            <input
+              id="usuarioAlert"
+              onkeyup="verificarAlert()"
+              type="text"
+              name="usuario"
+              placeholder="Digite seu usuario"
+              required
+              maxlength="15"
+              minlength="5"
+            />
+          </div>
+
+          <div class="textCadastro">
+            <label id="labelSenha" for="senha">Senha</label>
+            <input
+              id="senhaAlert"
+              onkeyup="verificarAlert()"
+              type="password"
+              name="senha"
+              placeholder="Digite nova senha"
+              required
+              maxlength="15"
+              minlength="5"
+            />
+          </div>
+
+          <div class="Butoes-salvar">
+            <button
+              type="submit"
+              id="bntsalvar"
+              value="Salvar"
+              onclick="alertSalvar()"
+            >
+              Salvar
+            </button>
+            <button
+              type="submit"
+              id="bntcancelar"
+              value="Cancelar"
+              onclick="alertCancelar()"
+            >
+              Limpar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+      <!--termina-->
+
+<div><button  onclick="pesquisar()">Pesquisar</button><input type = 'text' id="pesquisar" placeholder="Digite aqui"/></div>
+
+
+      <div class="cardTabela">
+        <table id="tblListar">
+          <caption>Usuarios registrados</caption>
+          <tr>
+            <td id="tdNome">Nome</td>
+            <td id="tdUser">Usuario</td>
+            <td id="tdEmail">Email</td>
+            <td id="tdExcluir">Excluir</td>
+            <td id="tdEditar">Editar</td>
+          </tr>
+         <tbody id = "tbody">
+
+         </tbody>
+          <div class="button"></div>
+        </table>
+      </div>
+      <div class="pg">
+        <a href="#" id = "pagAll">&laquo;</a>
+            <b id = 'p'></b>
+        <a href="#" id = "pagAll">&raquo;</a>
+      </div>
+      
+      <footer class="rodape">
+        <p><a href="Contato.html">Clique aqui, deixe sua opinião!</a></p>
+      </footer>
+    </div>
+
+    <!--termina-->
+  </body>
+</html>

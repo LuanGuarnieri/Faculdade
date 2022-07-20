@@ -1,0 +1,152 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+a{
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3;
+    
+}
+a:hover{
+    color: #00ff88;
+    opacity: 0.7;
+    font-weight: 400;
+   
+    
+}
+
+#logo{  
+    font-size: 24px;
+    text-transform: uppercase; /*Deixando maiusculo*/
+    letter-spacing: 4px;
+}
+
+#logo:hover{
+    opacity: 1;
+    box-shadow: 0px 10px 40px -12px #00ff88;
+    border-radius: 100%;
+    font-weight: 700;
+    border-style: ridge;
+    border-color: #00ff88;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+}
+
+nav{
+    display: flex; /*Logo e lista um ao lado do outro*/
+    justify-content: space-around;
+    align-items: center;
+    font-family:system-ui, -apple-system,Helvetica, Arial, sans-serif;
+    background-color: #23232e;
+    height: 10vh; /*VH cobre a porcentagem da tela do usuario, 100 vh = tela inteira*/
+
+}
+
+.nav-lista{ /*deixando o nav ao lado da logo*/
+    display: flex;
+    list-style: none;
+}
+
+.nav-lista li{ /*para cada item da lista*/
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+#btnLogo{
+    background-color:  transparent;
+    border: none;
+}
+
+.rodape{
+    flex-shrink: 0;
+    background-color: #23232e;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+.rodape p {
+    margin-left: 10vw;
+}
+
+.rodape p a:hover{
+  color: #51ff00;
+  font-weight: 700;
+  box-shadow: 0px 10px 40px -12px #51ff00;
+}
+ 
+#OS{
+    color: #ffffff;
+    font-weight: 900;
+}
+
+#OS:hover{
+    color: #00ff88;
+    opacity: 1;
+}
+
+#sair{
+    background-color: transparent;
+    display: none;
+    color: #ffffff;
+    border: none;
+    padding-top: 4px;
+    padding-bottom: 3px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#sair:hover{
+    color: #eb0b25ee;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+
+#divOs{
+    display: none;
+    background-color: #043b23ef;
+    justify-content: right;
+    padding: 0px 10% 0px 0px;
+}
+b{
+    margin: 12px 1% 0px 0px;
+    color: #ffffff;
+}
+
+#divOs li {
+    background-color: transparent;
+    margin-right: 10vh;
+    display: flex;
+    color: #00ff88;
+    border: none;
+    margin: 12px 5% 0px 0px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    cursor: pointer;
+    
+}
+
+
+
+
+/*--------------------------------------*/
+
+
+
+
+
+
+
+
+
+    
+    
+
