@@ -1,0 +1,70 @@
+package module_costarica;
+
+import java.io.File;
+import java.io.FileReader;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import fifa.NationalTeamStats;
+
+public class Informacoes implements NationalTeamStats{
+	CostaRica selecao;
+
+	public Informacoes(CostaRica selecao) {
+		this.selecao = selecao;
+	}
+
+	@Override
+	public int getHowManyQuestions() { //retornando o total de chamadas de todos os métodos 
+		File arq = new File ( "C:\\selecao\\registros\\qtdVzs.json" );
+
+			if ( !arq.exists() ) {
+				return 0;
+			} else {
+				try {
+					FileReader ler = new FileReader(arq);
+					JSONParser p = new JSONParser();
+					Object obj = p.parse(ler);
+					JSONObject aux = (JSONObject) obj;
+					return Integer.parseInt(aux.get("quantidade").toString());
+				} catch (Exception e) {
+					return 0;
+				}
+			}
+	}
+
+	@Override
+	public int getHowManyCallsToPlayer(int number) {
+		try {
+			File arq = new File(CostaRica.repositorio + "\\registros\\chamadaJogador.json");
+
+			if ( !arq.exists()) {
+				return 0; // se arquivo não existir, quer dizer que não foi chamado ainda
+
+			} else {
+
+				if (selecao.listaJogadores().get(number) == null) {
+					return 0;
+				} else {
+					String nome = selecao.listaJogadores().get(number).getNome();
+					FileReader ler = new FileReader(arq);
+					JSONParser p = new JSONParser();
+					Object obj = p.parse(ler);
+					JSONObject json = (JSONObject) obj;
+
+						if (json.get(nome) == null) {
+							return 0;
+						} else {
+							return Integer.parseInt(json.get(nome).toString());
+						}					
+				}		
+			}
+
+		} catch (Exception e) {
+			selecao.registrarLog("Erro método getHowManyCallsToPlayer" + e.getMessage());
+			return 0;
+		}
+	}
+
+}

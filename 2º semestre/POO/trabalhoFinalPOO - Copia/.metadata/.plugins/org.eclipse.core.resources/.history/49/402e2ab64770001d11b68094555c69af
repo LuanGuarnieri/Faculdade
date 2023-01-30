@@ -1,0 +1,581 @@
+package module_costarica;
+
+
+import java.awt.Image;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.URL;
+import java.nio.file.Path;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import javax.imageio.ImageIO;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import fifa.NationalTeamInfos;
+import fifa.NationalTeamStats;
+
+public class CostaRica  implements NationalTeamInfos {
+	private static final String pais = "CostaRica";
+	private static List<Comissao> comitiva = new ArrayList<Comissao>();
+	private static List<String> posicoes = new ArrayList<String>();
+
+	public CostaRica() {
+		criarDiretorioPadrão();
+		addPosicoes();
+		carregaComissao(); 
+		registrarLog("SISTEMA STARTADO COM SUCESSO");
+	}
+
+	// metodos criados
+
+	public HashMap<Integer, Jogador> listaJogadores() { // retornando somente jogadores
+		if (comitiva.isEmpty()) {
+			return null;
+		} else {
+			HashMap<Integer, Jogador> j = new HashMap<>();
+
+			for (Comissao c : comitiva) {
+				if (c.getCargo().equals(Jogador.cargo)) {
+					Jogador aux = (Jogador) c;
+					j.put(aux.getNumero(), aux);
+				}
+			}
+			return j;
+		}
+
+	}
+
+	public List<Comissao> listaComissaoTecnica() { // retornando somente comissão técnica
+		if (comitiva.size() == 0) {
+			return null;
+		} else {
+			List<Comissao> aux = new ArrayList<>();
+			for (Comissao c : comitiva) {
+				if (!c.getCargo().equals("JOGADOR")) {
+					aux.add(c);
+				}
+			}
+			return aux;
+		}
+	}
+
+	private void addPosicoes() { // adicionando as posições possiveis dos jogadores
+		posicoes.add("GOLEIRO");
+		posicoes.add("LATERAL DIREITO");
+		posicoes.add("LATERAL ESQUERDO");
+		posicoes.add("ALA DIREITA");
+		posicoes.add("ALA ESQUERDA");
+		posicoes.add("ZAGUEIRO");
+		posicoes.add("LIBERO");
+		posicoes.add("VOLANTE");
+		posicoes.add("MEIA CENTRAL");
+		posicoes.add("MEIA DE CONTENCACAO");
+		posicoes.add("MEIA DE ARMACAO");
+		posicoes.add("MEIA PELOS EXTREMOS");
+		posicoes.add("MEIA OFENSIVO");
+		posicoes.add("ATACANTE RECUADO");
+		posicoes.add("SEGUNDO ATACANTE");
+		posicoes.add("PONTA DIREITA");
+		posicoes.add("PONTA ESQUERDA");
+		posicoes.add("CENTRO AVANTE");
+	}
+
+	public List<String> getPosicoes() {
+		return CostaRica.posicoes;
+	}
+
+	private void carregaComissao() { // (FAZER)
+		adicionaJsonJogadores(); 
+		adicionaJsonComissaoTecnica();
+		carregaJsonJogadores();
+		carregarJsonComissaoTecnica();
+	}
+
+	private void adicionaJsonJogadores() {
+		File dir = new File("C:\\CostaRica\\jogadores");
+
+		if (!dir.exists()) { 
+			try {
+				dir.mkdir();
+				JSONArray jsonArray = new JSONArray();
+				insereJogadorJSON("ATHLETIC BILBAO", "UNAI SÍMON",            "SÍMON",       190, 75.0, 25, "11-06-1997", 1,  "GOLEIRO",          jsonArray);
+				insereJogadorJSON("REAL MADRID",     "DANIEL CARVAJAL RAMOS", "CARVAJAL",    173, 82.0, 30, "11-01-1992", 20, "LATERAL DIREITO",  jsonArray);
+				insereJogadorJSON("CHELSEA",         "CEZAR AZPILICUETA",     "AZPILICUETA", 178, 77.0, 33, "28-08-1989", 2,  "ZAGUEIRO",         jsonArray);
+				insereJogadorJSON("BARCELONA",       "ERIC GARCIA",           "ERIC",        182, 76.0, 21, "09-01-2001", 12, "ZAGUEIRO",         jsonArray);
+				insereJogadorJSON("BARCELONA",       "JORDI ALBA", 			  "ALBA",        170, 68.0, 33, "21-03-1989", 33, "LATERAL ESQUERDO", jsonArray);
+				insereJogadorJSON("BARCELONA",       "SERGIO BUSQUETS",       "BUSQUETS",    189, 76.0, 34, "16-06-1988", 5,  "VOLANTE",          jsonArray);
+				insereJogadorJSON("ATLETIC MADRID",  "JORGE  MERODIO",        "KOKE",        176, 74.0, 30, "08-01-1992", 8,  "MEIA CENTRAL",     jsonArray);
+				insereJogadorJSON("BARCELONA",       "PABLO MARGIN GAVIRA",   "GAVI",        174, 60.0, 18, "25-11-2004", 9,  "MEIA DE ARMACAO",  jsonArray);
+				insereJogadorJSON("BARCELONA",       "PEDRO GONZÁLEZ LÓPEZ",  "PEDRI",       173, 62.0, 20, "11-01-2002", 26, "MEIA OFENSIVO",    jsonArray);
+				insereJogadorJSON("BARCELONA",       "ANSSUMANE FATI VIEIRA", "ANSU FATI",   178, 66.0, 20, "31-10-2002", 25, "PONTA DIREITA",    jsonArray);
+				insereJogadorJSON("ATLETIC MADRID",  "ÁLVARO MORATA",         "MORATA",      189, 74.0, 30, "23-10-1992", 7,  "CENTRO AVANTE",    jsonArray);
+				insereJogadorJSON("ATLETIC MADRID",  "NICHOLAS ARTHUER",      "NICO",        181, 67.0, 20, "12-07-2002", 11, "PONTA ESQUERDA",   jsonArray);
+
+				FileWriter escrever = new FileWriter(dir + "\\jogadores.json");
+				escrever.write(jsonArray.toJSONString());
+				escrever.close();
+			} catch (IOException e) {
+				registrarLog("erro ao criar JSON dos jogadores" + e.getMessage());
+			}
+
+		}
+	} 
+
+	private void adicionaJsonComissaoTecnica() {
+		File dir = new File("C:\\CostaRica\\comissao");
+
+		if ( !dir.exists() ) {
+			try {
+				dir.mkdir();
+				JSONArray jsonArray = new JSONArray();
+				insereComissaoTecnicaJSON("GÍJON", "LUIZ ENRIQUE MARTINEZ GARCIA", "MARTINEZ", 180, 89.3, 52, "08-05-1970", "TECNICO", jsonArray);
+				insereComissaoTecnicaJSON("GÍJON", "JUAN JOSE GONZALEZ ARGUELLES", "JUANJO", 173, 84.6, 49, "09-10-1973", "TREINADOR DE GOLEIROS", jsonArray);
+				insereComissaoTecnicaJSON("CELTA DE VIGO", "RAFEL POL", "RAFEL", 180, 75.4, 35, "13-01-1987", "TECNICO AUXILIAR", jsonArray);
+				insereAcessorImprensaJSON("INDEFINIDO", "PALOMA ANTORANZ ESPINAR", "PALOMA", 165, 65.4, 36, "14-10-1986", "654321098", "654321230", "paloma.espinar@cef.es", jsonArray);
+
+				FileWriter escrever = new FileWriter(dir + "\\comissao.json");
+				escrever.write(jsonArray.toJSONString());
+				escrever.close();
+			} catch (Exception e) {
+				registrarLog("Erro ao tentar criar a comissao tecnica" + e.getMessage());
+			}
+		}
+	}
+
+	private void carregaJsonJogadores() {
+		JSONParser p = new JSONParser();
+
+		try {
+			File arq = new File("C:\\CostaRica\\jogadores\\jogadores.json");
+
+			if ( !arq.exists()) {
+				throw new IllegalArgumentException("Arquivo jogadores.json não encontrado");
+			}
+
+			FileReader ler = new FileReader(arq);
+			Object obj = p.parse(ler);
+			JSONArray json = (JSONArray) obj; //pegando o json 
+
+			int i = 0, aux = json.size(); 
+
+			do {
+				JSONObject jobj = (JSONObject) json.get(i);
+				lerJogador(jobj); // fazendo cast do object oara JSONObject	
+				i ++;
+			} while (i != aux);
+			ler.close();			
+
+		} catch (Exception e) {
+			registrarLog("Erro ao carregar os jogadores: " + e.getMessage());
+		}
+	}
+
+	private void lerJogador (JSONObject obj) { 
+		Jogador j = new Jogador(obj.get("clube").toString(),
+								obj.get("nome").toString(), 
+								obj.get("apelido").toString(),
+								Integer.parseInt(obj.get("altura").toString()), 
+								Double.parseDouble(obj.get("peso").toString()), 
+								obj.get("datNasc").toString(),
+								Integer.parseInt(obj.get("numero").toString()), 
+								obj.get("pos").toString(), 
+								this);
+
+		CostaRica.comitiva.add(j); // adicionando a lista o jogador recuperado do Json 
+	}
+
+	private void carregarJsonComissaoTecnica() {
+		JSONParser p = new JSONParser();
+
+		try {
+			File arq = new File("C:\\CostaRica\\comissao\\comissao.json");
+
+			if ( !arq.exists()) {
+				throw new IllegalArgumentException("Arquivo comissao.json não encontrado");
+			}
+
+			FileReader ler = new FileReader(arq);
+			Object obj = p.parse(ler);
+			JSONArray json = (JSONArray) obj; //pegando o json 
+
+			for (int i = 0; i < json.size(); i ++) {
+				JSONObject jobj = (JSONObject) json.get(i);
+				lerComissao(jobj); // fazendo cast do object oara JSONObject	
+			}	
+
+		} catch (Exception e) {
+			registrarLog("Erro ao carregar a comissâo técnica: " + e.getMessage());
+		}
+	}
+
+	private void lerComissao(JSONObject obj) {
+		if (obj.get("email") == null ) {
+			ComissaoTecnica c = new ComissaoTecnica(obj.get("clube").toString(),
+												    obj.get("nome").toString(), 
+												    obj.get("apelido").toString(), 
+												    Integer.parseInt(obj.get("altura").toString()),
+												    Double.parseDouble(obj.get("peso").toString()), 
+												    obj.get("datNasc").toString(), 
+												    obj.get("cargo").toString(), 
+												    this);
+			CostaRica.comitiva.add(c);
+		} else {
+			AcessorImprensa a = new AcessorImprensa(obj.get("clube").toString(),
+												    obj.get("nome").toString(), 
+												    obj.get("apelido").toString(), 
+												    Integer.parseInt(obj.get("altura").toString()),
+												    Double.parseDouble(obj.get("peso").toString()), 
+												    obj.get("datNasc").toString(),
+													obj.get("tel1").toString(), 
+													obj.get("tel2").toString(), 
+													obj.get("email").toString(),
+													this);
+			CostaRica.comitiva.add(a);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private void insereJogadorJSON(String clube, String nome, String apelido, int altura, double peso, int idade,
+			String datNasc, int num, String pos, JSONArray json) {
+		JSONObject obj = new JSONObject();
+		obj.put("clube", clube);
+		obj.put("nome", nome);
+		obj.put("apelido", apelido);
+		obj.put("altura", altura);
+		obj.put("peso", peso);
+		obj.put("idade", idade);
+		obj.put("datNasc", datNasc);
+		obj.put("numero", num);
+		obj.put("pos", pos);
+
+		json.add(obj);
+	}
+
+	@SuppressWarnings("unchecked")
+	private void insereComissaoTecnicaJSON(String clube, String nome, String apelido, int altura, double peso,
+			int idade, String datNasc, String cargo, JSONArray json) {
+		JSONObject obj = new JSONObject();
+		obj.put("clube", clube);
+		obj.put("nome", nome);
+		obj.put("apelido", apelido);
+		obj.put("altura", altura);
+		obj.put("peso", peso);
+		obj.put("idade", idade);
+		obj.put("datNasc", datNasc);
+		obj.put("cargo", cargo);
+
+		json.add(obj);
+	}
+
+	@SuppressWarnings("unchecked")
+	private void insereAcessorImprensaJSON(String clube, String nome, String apelido, int altura, double peso,
+			int idade, String datNasc, String tel1, String tel2, String email, JSONArray json) {
+		JSONObject obj = new JSONObject();
+		obj.put("clube", clube);
+		obj.put("nome", nome);
+		obj.put("apelido", apelido);
+		obj.put("altura", altura);
+		obj.put("peso", peso);
+		obj.put("idade", idade);
+		obj.put("datNasc", datNasc);
+		obj.put("tel1", tel1);
+		obj.put("tel2", tel2);
+		obj.put("email", email);
+
+		json.add(obj);
+	}
+
+	private void criarDiretorioPadrão() {
+		try {
+			File dir = new File("C:\\CostaRica\\registros");
+			File logs = new File(dir, "logs.txt");
+
+			if (!dir.exists()) {
+				dir.mkdirs();
+			}
+			logs.createNewFile();
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Erro ao tentar criar o diretório de arquivos");
+		}
+
+	}
+
+	@SuppressWarnings("unchecked")
+	private void contaChamadaMetodos() {
+		File arq = new File("C:\\CostaRica\\registros\\qtdVzs.json");
+		FileWriter esc;
+		int cont = 1;
+		JSONObject json;
+
+		try {
+			if (!arq.exists()) {
+				json = new JSONObject();
+				json.put("quantidade", cont);
+				esc = new FileWriter(arq);
+				esc.write(json.toJSONString());
+				esc.close();
+			} else {
+				FileReader ler = new FileReader(arq);
+				JSONParser p = new JSONParser();
+				Object obj = p.parse(ler);
+				json = (JSONObject) obj;
+				cont = Integer.parseInt(json.get("quantidade").toString());
+				ler.close();
+				json.put("quantidade", cont + 1);
+				esc = new FileWriter(arq);
+				esc.write(json.toJSONString());
+				esc.close();
+			}
+
+		} catch (Exception e) {
+			throw new IllegalArgumentException(" Erro ao criar arquivo qtdVzs.json ");
+		}
+
+	}
+
+	private void registrarLog(String msg) { // registro de logs
+		try {
+			FileWriter arq = new FileWriter("C:\\CostaRica\\registros\\logs.txt", true);
+			PrintWriter gravar = new PrintWriter(arq);
+			gravar.println(msg + " - " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyy HH:mm:ss")));
+			gravar.close();
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Erro ao tentar gerar logs ");
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private void registrarChamadaJogador(int numero) {	
+		File arq = new File("C:\\CostaRica\\registros\\chamadaJogador.json");
+		JSONObject json = new JSONObject();
+		FileWriter esc;
+		FileReader ler;
+		String nome = "";
+
+		if (listaJogadores().get(numero) == null) {
+			return;
+
+		} else {
+			nome = listaJogadores().get(numero).getNome().toUpperCase();
+
+			try {
+				if ( !arq.exists() ) {
+
+					json.put(nome, 1); 
+					esc = new FileWriter(arq);
+					esc.write(json.toJSONString());
+					esc.close();
+					return;
+				} 
+
+					JSONParser p = new JSONParser();
+					ler = new FileReader(arq);
+					Object obj =  p.parse(ler);
+					json = (JSONObject) obj;
+
+					if (json.get(nome) == null) { 
+						json.put(nome, 1); 
+						esc = new FileWriter(arq);
+						esc.write(json.toJSONString());
+						esc.close();
+
+					} else {
+						int i = Integer.parseInt(json.get(nome).toString()) + 1;
+						json.put(nome, i); 
+						esc = new FileWriter(arq);
+						esc.write(json.toJSONString());
+						esc.close(); 
+					}		
+
+			} catch (Exception e) {
+				registrarLog("Erro no método registrarChamadaJogador, nº " + numero + " " + e.getMessage());
+			}	
+		}	
+	}
+
+
+	// MÉTODOS DA INTERFACE
+
+	@Override
+	public int getHowManyMembers() { // quantidade total da comitiva
+		contaChamadaMetodos();
+		return comitiva.size();
+	}
+
+	@Override
+	public int getOldestPlayer() { // jogador com a maior idade
+		contaChamadaMetodos();
+		if (listaJogadores() == null) {
+			return 0;
+		} else {
+			int idade = Integer.MIN_VALUE, numero = 0;
+
+			for (Integer j : listaJogadores().keySet()) {
+				Jogador aux = listaJogadores().get(j);
+
+				if (aux.getIdade() > idade) {
+					idade = aux.getIdade();
+					numero = aux.getNumero();
+				}
+			}
+			return numero;
+		}
+	}
+
+	@Override
+	public int getYoungestPlayer() { // jogador com a menor idade
+		contaChamadaMetodos();
+		if (listaJogadores() == null) {
+			return 0;
+		} else {
+			int idade = Integer.MAX_VALUE, numero = 0;
+			for (Integer j : listaJogadores().keySet()) {
+				Jogador aux = listaJogadores().get(j);
+
+				if (idade >  aux.getIdade()) {
+					idade = aux.getIdade();
+					numero = aux.getNumero();
+				}
+			}
+			return numero;
+		}
+	}
+
+	@Override
+	public double getAverageAge() { // idade média dos jogadores
+		contaChamadaMetodos();
+		if (listaJogadores() == null) {
+			return 0;
+		} else {
+			int media = 0;
+			for (Integer j : listaJogadores().keySet()) {
+				Jogador aux = listaJogadores().get(j);
+				media += aux.getIdade();
+			}
+			return (media / listaJogadores().size());
+		}
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public String getPlayer(int number) { // dados de um jogador especifico
+		contaChamadaMetodos();
+
+		if (listaJogadores().isEmpty() || listaJogadores().get(number) == null) {
+			return null;
+		} else {
+			registrarChamadaJogador(number);
+			Jogador aux = listaJogadores().get(number);
+			JSONObject json = new JSONObject();
+
+			json.put("number", aux.getNumero());
+			json.put("name", aux.getNome());
+			json.put("nickname", aux.getApelido());
+			json.put("height", aux.getAltura());
+			json.put("weight", aux.getPeso());
+			json.put("birthDate", aux.dataNascFormatada());
+			json.put("position", aux.getPosicao());
+			json.put("currentClube", aux.getClube());
+
+			return json.toJSONString().replace("\\", "");
+		}
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public String getPressOfficerContacts() { // dados do acessor de imprensa da selecao
+		contaChamadaMetodos();
+		JSONArray json = new JSONArray();
+
+		if (listaComissaoTecnica() == null) {
+			return "{}";
+		} else {
+			for (Comissao c : listaComissaoTecnica()) {
+				if (c.getCargo().equals("ACESSOR DE IMPRENSA")) {
+					AcessorImprensa aux = (AcessorImprensa) c;
+					JSONObject jsonAux = new JSONObject();
+					jsonAux.put("name", aux.getNome());
+					jsonAux.put("tel1", aux.getTel1());
+					jsonAux.put("tel2", aux.getTel2());
+					jsonAux.put("emailAccount", aux.getEmalil());
+					json.add(jsonAux);
+				}
+			}
+			return json.toJSONString();
+		}
+	}
+
+	@Override
+	public String getCountryName() {
+		contaChamadaMetodos();
+		return CostaRica.pais;
+	}
+
+	@Override
+	public Image getFlagImage() { // validar caminho da imagem
+		contaChamadaMetodos();
+		URL caminho = CostaRica.class.getResource("logoCostaRica.jpg");
+		Image img = null;
+		try {	
+			img = ImageIO.read(caminho);	
+
+		} catch (IOException e) {
+			registrarLog("Erro ao achar a imagem da bandeira (" + caminho + ")  - " +e.getMessage());
+		}		
+		return img; 
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public Path getTechnicalCommittee() {
+		contaChamadaMetodos();
+
+		if (listaComissaoTecnica().isEmpty()) {
+			return null;
+		} else {
+
+			JSONArray jsonArray = new JSONArray();
+			JSONObject obj = null;
+			for (Comissao c : listaComissaoTecnica()) {
+				obj = new JSONObject();
+				obj.put("name", c.getNome());
+				obj.put("nickname", c.getApelido());
+				obj.put("role", c.getCargo());
+				obj.put("age", c.getIdade());
+				jsonArray.add(obj);
+			}
+
+			try {
+				File arq = new File("C:\\CostaRica\\registros\\comissaoTecnica.json");
+				FileWriter gravar = new FileWriter(arq);
+				gravar.write(jsonArray.toJSONString());
+				gravar.close();
+
+				return arq.toPath();
+
+			} catch (IOException e) {
+				registrarLog("Erro ao gravar json comite " + e.getMessage());
+				return null;
+			}
+		}
+	}
+
+	@Override
+	public NationalTeamStats getStatsResponsible() {
+		contaChamadaMetodos();
+		return new Informacoes(this);
+	}
+
+	public static void main(String[] args) {
+		new CostaRica();
+	}
+}

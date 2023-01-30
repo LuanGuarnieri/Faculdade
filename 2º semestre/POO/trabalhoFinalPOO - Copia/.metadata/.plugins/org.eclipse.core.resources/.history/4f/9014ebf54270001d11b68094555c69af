@@ -1,0 +1,166 @@
+package module_costarica;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+
+import javax.swing.text.DateFormatter;
+
+public /*abstract*/ class Comissao {
+	private String clube;
+	private String nome;
+	private String apelido;
+	private int altura;
+	private float peso;
+	private int idade;
+	private LocalDate dataNasc;
+
+	// constructor
+	public Comissao(String clube, String nome, String apelido, int altura, double peso, String datNasc) {
+
+		setClube	(clube);
+		setNome		(nome);
+		setApelido	(apelido);
+		setAltura	(altura);
+		setPeso		(peso);
+		setDatNasc	(converterData(datNasc));
+
+	}
+	
+	public Comissao(String i) {
+		setDatNasc(converterData(i));
+	}
+
+	// métodos da classe
+
+	protected static boolean validarString(String stg, int tamMin) {
+		if (stg != null && stg.length() >= tamMin) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	static protected IllegalArgumentException retornaExcecao(String exc) {
+		return new IllegalArgumentException(exc);
+	}
+
+	private LocalDate converterData(String data) {
+		DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+		if (data == null || data.length() != 10) {
+			return LocalDate.now();
+		} else {
+			return LocalDate.parse(data, formatar);
+		}
+	}
+
+	protected String dataNascFormatada() {
+		DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		return this.dataNasc.format(formatar);
+	}
+
+	// setters
+	private void setClube(String clube) {
+		if (validarString(clube, 3)) {
+			this.clube = clube;
+		} else {
+			throw retornaExcecao("Nome do clube nullo ou com tamanho inferior a 3 - " + getNome());
+		}
+	}
+
+	private void setNome(String nome) {
+		if (validarString(nome, 2)) {
+			this.nome = nome;
+		} else {
+			throw retornaExcecao("Paramêtro nome nullo ou com tamanho inferior a 2 - " + getNome());
+		}
+	}
+
+	private void setApelido(String apelido) {
+		if (validarString(apelido, 2)) {
+			this.apelido = apelido;
+		}
+	}
+
+	private void setAltura(int altura) {
+		if (altura > 0 && altura < 320) {
+			this.altura = altura;
+		} else {
+			throw retornaExcecao("Altura inválida - " + getNome());
+		}
+	}
+
+	private void setPeso(double peso) {
+		if (peso > 0.0) {
+			this.peso = (float) peso;
+		} else {
+			throw retornaExcecao("Peso inválido - " + getNome());
+		}
+	}
+
+	private void setDatNasc(LocalDate data) {
+		if (data.isBefore(LocalDate.now())) {
+			this.dataNasc = data;
+		} else {
+			throw retornaExcecao("Data de nascimento inválida (Formato a ser colocada: dd/mm/yyyy) - " + getNome());
+		}
+	}
+
+	// getters
+	public String getClube() {
+		return this.clube;
+	}
+
+	public String getNome() {
+		return this.nome;
+	}
+
+	public String getApelido() {
+		if (this.apelido != null) {
+			return this.apelido;
+		} else {
+			return "Sem apelido";
+		}
+	}
+
+	public int getAltura() {
+		return this.altura;
+	}
+
+	public float getPeso() {
+		return this.peso;
+	}
+
+	public int getIdade() {
+		return this.idade;
+	}
+
+	public int getIdade2() {
+		Period p = Period.between(dataNasc, LocalDate.now());
+		return p.getYears();
+
+	}
+	
+	public LocalDate getDataNasc() {
+		return this.dataNasc;
+	}
+
+	public String getCargo() {
+		return "";
+	}
+	
+	
+	public static void main(String[] args) {
+		Comissao c = new Comissao("14-02-2022");
+		
+		DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		LocalDate d = LocalDate.now();
+		LocalDate e = c.converterData("14-02-2022");
+		
+		System.out.println(c.getIdade2());
+	}
+	
+	
+}
