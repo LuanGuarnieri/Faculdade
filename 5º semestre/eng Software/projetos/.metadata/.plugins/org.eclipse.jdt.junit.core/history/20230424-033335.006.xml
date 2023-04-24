@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AlbumTest" project="projetoAlbuns" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="projetoAlbuns.AlbumTest" time="0.175" displayname="AlbumTest" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]">
+    <testcase name="excluirMusica" classname="projetoAlbuns.AlbumTest" time="0.124" displayname="excluirMusica()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]/[method:excluirMusica()]"/>
+    <testcase name="mudarTituloAlbum" classname="projetoAlbuns.AlbumTest" time="0.02" displayname="mudarTituloAlbum()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]/[method:mudarTituloAlbum()]"/>
+    <testcase name="inserirMusica" classname="projetoAlbuns.AlbumTest" time="0.003" displayname="inserirMusica()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]/[method:inserirMusica()]"/>
+    <testcase name="excluirMusica2" classname="projetoAlbuns.AlbumTest" time="0.005" displayname="excluirMusica2()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]/[method:excluirMusica2()]"/>
+    <testcase name="excecaoInserirMusica" classname="projetoAlbuns.AlbumTest" time="0.006" displayname="excecaoInserirMusica()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]/[method:excecaoInserirMusica()]"/>
+    <testcase name="excecaoTituloInvalido" classname="projetoAlbuns.AlbumTest" time="0.003" displayname="excecaoTituloInvalido()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]/[method:excecaoTituloInvalido()]"/>
+  </testsuite>
+</testrun>

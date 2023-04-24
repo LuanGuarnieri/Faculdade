@@ -1,0 +1,15 @@
+package projetoAlbuns;
+
+import java.time.LocalDate;
+
+public class teste {
+	public static void main(String[] args) {
+		LocalDate aux = LocalDate.of(2023, 4, 23);
+		
+		if(aux.isAfter(LocalDate.now())) {
+			System.out.println("A DATA É DEPOIS DE HOJE");
+		} else {
+			System.out.println("A DATA É ANTES DE HOJE");
+		}
+	}
+}

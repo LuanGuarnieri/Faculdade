@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="MusicaTest" project="projetoAlbuns" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="projetoAlbuns.MusicaTest" time="0.172" displayname="MusicaTest" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]">
+    <testcase name="alterarNomeLista" classname="projetoAlbuns.MusicaTest" time="0.123" displayname="alterarNomeLista()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]/[method:alterarNomeLista()]"/>
+    <testcase name="validarListaArtistas" classname="projetoAlbuns.MusicaTest" time="0.015" displayname="validarListaArtistas()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]/[method:validarListaArtistas()]"/>
+    <testcase name="retornarExcecaoTitulo" classname="projetoAlbuns.MusicaTest" time="0.006" displayname="retornarExcecaoTitulo()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]/[method:retornarExcecaoTitulo()]"/>
+    <testcase name="retornarExcecaoListaArtistas" classname="projetoAlbuns.MusicaTest" time="0.004" displayname="retornarExcecaoListaArtistas()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]/[method:retornarExcecaoListaArtistas()]"/>
+    <testcase name="alterarDataCriacaoLista" classname="projetoAlbuns.MusicaTest" time="0.01" displayname="alterarDataCriacaoLista()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]/[method:alterarDataCriacaoLista()]"/>
+    <testcase name="retornarExcecaoData" classname="projetoAlbuns.MusicaTest" time="0.003" displayname="retornarExcecaoData()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]/[method:retornarExcecaoData()]"/>
+  </testsuite>
+</testrun>

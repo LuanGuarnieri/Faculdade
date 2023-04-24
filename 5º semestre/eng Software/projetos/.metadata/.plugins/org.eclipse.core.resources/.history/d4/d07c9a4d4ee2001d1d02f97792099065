@@ -1,0 +1,22 @@
+package projetoAlbuns;
+
+import java.time.LocalDate;
+import java.util.HashMap;
+
+public class Artista extends Pessoa{
+
+	private HashMap<Long, Album> albuns;
+
+	public Artista(long codPessoa, String nome, LocalDate nasc) {
+		super(codPessoa, nome, nasc);
+		albuns = new HashMap<>();	
+	}
+	
+	public void criarAlbum(Album album) {
+		Album aux = retornaAlbuns().get(album.getCodAlbum());
+	}
+	
+	public HashMap<Long, Album> retornaAlbuns() {
+		return albuns; 
+	}
+}

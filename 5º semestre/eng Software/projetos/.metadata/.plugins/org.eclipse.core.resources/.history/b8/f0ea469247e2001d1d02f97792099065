@@ -1,0 +1,48 @@
+package projetoAlbuns;
+
+import java.time.LocalDate;
+
+public abstract class Pessoa {
+	private String nome;
+	private String cpf;
+	private LocalDate nasc;
+
+	public void setNome(String nome) {
+		if (nome.length() > 3) {
+			this.nome = nome;
+			
+		} else {
+			throw new IllegalArgumentException("Nome deverá conter pelo menos 4 caracteres");
+		}
+	}
+
+	public void setCpf(String cpf) {
+		cpf = cpf.replaceAll("[^0-9]", "");
+
+		if (cpf.length() == 11) {
+			this.cpf = cpf;
+		} else {
+			throw new IllegalArgumentException("CPF inválido");
+		}
+	}
+
+	public void setNasc(LocalDate nasc) {
+		try {
+			this.nasc = nasc;
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Data informada é inválida");
+		}
+	}
+	
+	public String getCpf() {
+		return cpf;
+	}
+
+	public LocalDate getNasc() {
+		return nasc;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+}

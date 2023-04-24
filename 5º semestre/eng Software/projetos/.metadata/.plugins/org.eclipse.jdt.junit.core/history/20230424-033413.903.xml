@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="projetoAlbuns" project="projetoAlbuns" tests="15" started="15" failures="0" errors="0" ignored="0">
+  <testsuite name="projetoAlbuns.MusicaTest" time="0.098" displayname="MusicaTest" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]">
+    <testcase name="alterarNomeLista" classname="projetoAlbuns.MusicaTest" time="0.055" displayname="alterarNomeLista()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]/[method:alterarNomeLista()]"/>
+    <testcase name="validarListaArtistas" classname="projetoAlbuns.MusicaTest" time="0.005" displayname="validarListaArtistas()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]/[method:validarListaArtistas()]"/>
+    <testcase name="retornarExcecaoTitulo" classname="projetoAlbuns.MusicaTest" time="0.006" displayname="retornarExcecaoTitulo()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]/[method:retornarExcecaoTitulo()]"/>
+    <testcase name="retornarExcecaoListaArtistas" classname="projetoAlbuns.MusicaTest" time="0.004" displayname="retornarExcecaoListaArtistas()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]/[method:retornarExcecaoListaArtistas()]"/>
+    <testcase name="alterarDataCriacaoLista" classname="projetoAlbuns.MusicaTest" time="0.012" displayname="alterarDataCriacaoLista()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]/[method:alterarDataCriacaoLista()]"/>
+    <testcase name="retornarExcecaoData" classname="projetoAlbuns.MusicaTest" time="0.005" displayname="retornarExcecaoData()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]/[method:retornarExcecaoData()]"/>
+  </testsuite>
+  <testsuite name="projetoAlbuns.AlbumTest" time="0.028" displayname="AlbumTest" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]">
+    <testcase name="excluirMusica" classname="projetoAlbuns.AlbumTest" time="0.006" displayname="excluirMusica()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]/[method:excluirMusica()]"/>
+    <testcase name="mudarTituloAlbum" classname="projetoAlbuns.AlbumTest" time="0.003" displayname="mudarTituloAlbum()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]/[method:mudarTituloAlbum()]"/>
+    <testcase name="inserirMusica" classname="projetoAlbuns.AlbumTest" time="0.002" displayname="inserirMusica()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]/[method:inserirMusica()]"/>
+    <testcase name="excluirMusica2" classname="projetoAlbuns.AlbumTest" time="0.002" displayname="excluirMusica2()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]/[method:excluirMusica2()]"/>
+    <testcase name="excecaoInserirMusica" classname="projetoAlbuns.AlbumTest" time="0.002" displayname="excecaoInserirMusica()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]/[method:excecaoInserirMusica()]"/>
+    <testcase name="excecaoTituloInvalido" classname="projetoAlbuns.AlbumTest" time="0.003" displayname="excecaoTituloInvalido()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]/[method:excecaoTituloInvalido()]"/>
+  </testsuite>
+  <testsuite name="projetoAlbuns.ArtistaTest" time="0.017" displayname="ArtistaTest" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.ArtistaTest]">
+    <testcase name="trocarCategoria" classname="projetoAlbuns.ArtistaTest" time="0.004" displayname="trocarCategoria()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.ArtistaTest]/[method:trocarCategoria()]"/>
+    <testcase name="retornaAlbuns" classname="projetoAlbuns.ArtistaTest" time="0.004" displayname="retornaAlbuns()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.ArtistaTest]/[method:retornaAlbuns()]"/>
+    <testcase name="excecaoCriarAlbumIgual" classname="projetoAlbuns.ArtistaTest" time="0.005" displayname="excecaoCriarAlbumIgual()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.ArtistaTest]/[method:excecaoCriarAlbumIgual()]"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,28 @@
+package projetoAlbuns;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+
+class MusicaTest {
+
+	Musica music;
+	
+	@Test
+	void criarMusica() {
+		
+		Artista art = new Artista(10L, "Luan Guarnieri", LocalDate.of(2002, 2, 14), "Tudo");
+		List<Artista> lista = new ArrayList<>();
+
+		lista.add(art);
+		
+		music = new Musica(1L, "Musica teste", LocalDate.now(), lista);
+		
+		assertEquals("Musica teste", music.getTitulo());
+	}
+
+}

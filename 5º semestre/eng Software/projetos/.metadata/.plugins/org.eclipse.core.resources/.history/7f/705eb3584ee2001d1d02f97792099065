@@ -1,0 +1,17 @@
+package projetoAlbuns;
+
+import java.util.HashMap;
+
+public class teste {
+
+	public static void main(String[] args) {
+		
+		HashMap<Integer, String> aaa = new HashMap<>();
+		
+		String a = aaa.get(2);
+		
+		System.out.println(a);
+		
+	}
+	
+}

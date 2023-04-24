@@ -1,0 +1,12 @@
+package projetoAlbuns;
+
+public class MusicaTest {
+	
+	private Musica music;
+
+	
+	private void criarMusica() {
+		
+	}
+	
+}

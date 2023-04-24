@@ -1,0 +1,110 @@
+package projetoAlbuns;
+
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+
+public class Album {
+	private long codAlbum;
+	private String titulo;
+	private LocalDate datCriacao;	
+	private List<Artista> artistas;
+	private HashMap<Long, Musica> musicas;
+	
+
+	
+	public Album(long codAlbum, String titulo, LocalDate datCriacao, List<Artista> artistas) {
+
+		setCodAlbum( codAlbum );
+		setTitulo( titulo );
+		setDatCriacao( datCriacao );
+		setArtistas( artistas );
+		
+		musicas = new HashMap<>();
+	}
+	
+	public void adicionarMusica(Musica music) {
+		Musica aux = getMusicas().get(music.getCodMusica());
+		
+		if (aux == null) {
+			getMusicas().put(music.getCodMusica(), music);
+		
+		} else {
+			throw new IllegalArgumentException("Musica ja vinculada ao album");
+		}
+	}
+	
+	public boolean excluirMusica(Long codMusica) {
+		Musica aux = getMusicas().get(codMusica);
+		
+		if ( aux != null ) {
+			getMusicas().remove(codMusica);
+			return true;
+			
+		} else {
+			return false;
+		}
+	}
+
+	private void setCodAlbum(long codAlbum) {
+		if( codAlbum > 0 ) {
+			this.codAlbum = codAlbum;
+		
+		} else {
+			throw new IllegalArgumentException("Codigo album inválido");
+		}
+	}
+
+	public void setTitulo(String titulo) {
+		if( titulo.length() >= 3 ) {
+			this.titulo = titulo;
+		
+		} else {
+			throw new IllegalArgumentException("Titulo do album deve conter min. 3 caracteres");
+		} 
+	}
+	
+	public void setDatCriacao(LocalDate datCriacao) {
+		try {
+			if (datCriacao.isBefore(LocalDate.now())) {
+				this.datCriacao = datCriacao;
+			
+			} else {
+				throw new Exception();
+			} 
+			
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Data criacao do album invalida");
+		}
+	}
+	
+	public void setArtistas(List<Artista> artistas) {
+		if( !artistas.isEmpty() ) {
+			this.artistas = artistas;
+	
+		} else {
+			throw new IllegalArgumentException("Nenhum artista vinculado ao album");
+		}
+		
+	}
+	
+	public long getCodAlbum() {
+		return codAlbum;
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+	
+	public LocalDate getDatCriacao() {
+		return datCriacao;
+	}
+	
+	public List<Artista> getArtistas() {
+		return artistas;
+	}
+	
+	public HashMap<Long, Musica> getMusicas() {
+		return this.musicas;
+	}
+}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ArtistaTest" project="projetoAlbuns" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="projetoAlbuns.ArtistaTest" time="0.113" displayname="ArtistaTest" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.ArtistaTest]">
+    <testcase name="retornaAlbuns" classname="projetoAlbuns.ArtistaTest" time="0.113" displayname="retornaAlbuns()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.ArtistaTest]/[method:retornaAlbuns()]"/>
+  </testsuite>
+</testrun>

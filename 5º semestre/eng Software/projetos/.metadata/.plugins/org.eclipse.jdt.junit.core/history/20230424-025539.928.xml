@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AlbumTest" project="projetoAlbuns" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="projetoAlbuns.AlbumTest" time="0.078" displayname="AlbumTest" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]">
+    <testcase name="mudarTituloAlbum" classname="projetoAlbuns.AlbumTest" time="0.071" displayname="mudarTituloAlbum()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]/[method:mudarTituloAlbum()]"/>
+    <testcase name="excecaoTituloInvalido" classname="projetoAlbuns.AlbumTest" time="0.005" displayname="excecaoTituloInvalido()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.AlbumTest]/[method:excecaoTituloInvalido()]"/>
+  </testsuite>
+</testrun>

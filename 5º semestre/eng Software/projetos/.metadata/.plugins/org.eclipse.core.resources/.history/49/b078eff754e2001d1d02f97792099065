@@ -1,0 +1,9 @@
+package projetoAlbuns;
+
+public class teste {
+	public static void main(String[] args) {
+		BancoDadosDao bd = new BancoDadosDao();
+		
+		System.out.println(bd.getConexao());
+	}
+}

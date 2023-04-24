@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ArtistaTest" project="projetoAlbuns" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="projetoAlbuns.ArtistaTest" time="0.08" displayname="ArtistaTest" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.ArtistaTest]">
+    <testcase name="trocarCategoria" classname="projetoAlbuns.ArtistaTest" time="0.071" displayname="trocarCategoria()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.ArtistaTest]/[method:trocarCategoria()]"/>
+    <testcase name="retornaAlbuns" classname="projetoAlbuns.ArtistaTest" time="0.002" displayname="retornaAlbuns()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.ArtistaTest]/[method:retornaAlbuns()]"/>
+    <testcase name="excecaoCriarAlbumIgual" classname="projetoAlbuns.ArtistaTest" time="0.004" displayname="excecaoCriarAlbumIgual()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.ArtistaTest]/[method:excecaoCriarAlbumIgual()]"/>
+  </testsuite>
+</testrun>

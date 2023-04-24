@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="MusicaTest" project="projetoAlbuns" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="projetoAlbuns.MusicaTest" time="0.082" displayname="MusicaTest" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]">
+    <testcase name="alterarNomeLista" classname="projetoAlbuns.MusicaTest" time="0.069" displayname="alterarNomeLista()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]/[method:alterarNomeLista()]"/>
+    <testcase name="validarListaArtistas" classname="projetoAlbuns.MusicaTest" time="0.003" displayname="validarListaArtistas()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]/[method:validarListaArtistas()]"/>
+    <testcase name="alterarDataCriacaoLista" classname="projetoAlbuns.MusicaTest" time="0.007" displayname="alterarDataCriacaoLista()" uniqueid="[engine:junit-jupiter]/[class:projetoAlbuns.MusicaTest]/[method:alterarDataCriacaoLista()]"/>
+  </testsuite>
+</testrun>

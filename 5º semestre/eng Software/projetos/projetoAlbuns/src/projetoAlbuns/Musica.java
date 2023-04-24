@@ -1,0 +1,78 @@
+package projetoAlbuns;
+
+import java.time.LocalDate;
+import java.util.List;
+
+public class Musica {
+	
+	private Long codMusica;
+	private String titulo;
+	private LocalDate dataCriacao;
+	private List<Artista> artistas;
+	
+	public Musica(Long codMusica, String titulo, LocalDate dataCriacao, List<Artista> artistas) {
+		
+		setCodMusica( codMusica );	
+		setTitulo( titulo );
+		setDataCriacao( dataCriacao );
+		setArtistas( artistas );
+	}
+
+	private void setCodMusica(Long codMusica) {
+		if( codMusica > 0 ) {
+			this.codMusica = codMusica;
+		
+		} else {
+			throw new IllegalArgumentException("Codigo de musica invalido");
+		}
+	}
+
+	public void setTitulo(String titulo) {
+		if( titulo.length() >=3 ) {
+			this.titulo = titulo;
+			
+		} else {
+			throw new IllegalArgumentException("Titulo da musica deve conter ao menos 3 caracteres");
+		}
+	}
+
+	public void setDataCriacao(LocalDate dataCriacao) {
+		try {
+			if (dataCriacao.isBefore(LocalDate.now().plusDays(1))) {
+				this.dataCriacao = dataCriacao;
+			
+			} else {
+				throw new Exception();
+			} 
+			
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Data de criacao da musica invalida");
+		}
+	}
+
+	public void setArtistas(List<Artista> artistas) {
+		if( !artistas.isEmpty() ) {
+			this.artistas = artistas;
+			
+		} else {
+			throw new IllegalArgumentException("Nenhum artista vinculado a musica");
+		}
+	}
+	
+	public Long getCodMusica() {
+		return codMusica;
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+	
+	public LocalDate getDataCriacao() {
+		return dataCriacao;
+	}
+	
+	public List<Artista> getArtistas() {
+		return artistas;
+	}
+	
+}

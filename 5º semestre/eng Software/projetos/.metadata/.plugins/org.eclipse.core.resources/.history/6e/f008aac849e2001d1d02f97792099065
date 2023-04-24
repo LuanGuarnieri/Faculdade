@@ -1,0 +1,54 @@
+package projetoAlbuns;
+
+import java.time.LocalDate;
+import java.util.HashMap;
+
+public class Album {
+	private long codAlbum;
+	private String titulo;
+	private LocalDate datCriacao;
+	private HashMap<String, Musica> musicas;
+	
+	
+	
+	public void setCodAlbum(long codAlbum) {
+		if( codAlbum > 0 ) {
+			this.codAlbum = codAlbum;
+		
+		} else {
+			throw new IllegalArgumentException("Codigo album inválido");
+		}
+	}
+
+	public void setTitulo(String titulo) {
+		if( titulo.length() >= 3 ) {
+			this.titulo = titulo;
+		
+		} else {
+			throw new IllegalArgumentException("Titulo do album deve conter min. 3 caracteres");
+		} 
+	}
+	
+	public void setDatCriacao(LocalDate datCriacao) {
+		try {
+			this.datCriacao = datCriacao;
+			
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Data criacao do album invalida");
+		}
+	}
+	
+	public long getCodAlbum() {
+		return codAlbum;
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+	
+	public LocalDate getDatCriacao() {
+		return datCriacao;
+	}
+	
+	
+}
