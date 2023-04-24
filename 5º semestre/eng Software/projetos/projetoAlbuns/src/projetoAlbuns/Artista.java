@@ -1,17 +1,14 @@
 package projetoAlbuns;
 
-import java.time.LocalDate;
 import java.util.HashMap;
 
 public class Artista extends Pessoa{
 
-	private String categoria;
 	private HashMap<Long, Album> albuns;
 
-	public Artista(long codPessoa, String nome, LocalDate nasc, String categoria) {
-		super(codPessoa, nome, nasc);
-		setCategoria( categoria );
-		
+	public Artista(long codPessoa, String nome, String nacionalidade) {
+		super(codPessoa, nome, nacionalidade);
+		 
 		albuns = new HashMap<>();	
 	}
 	
@@ -26,20 +23,7 @@ public class Artista extends Pessoa{
 		} 
 	}
 	
-	public void setCategoria( String cat ) {
-		if (cat.length() >=3 ) {
-			this.categoria = cat;
-			
-		} else {
-			throw new IllegalArgumentException("Categoria deve conter pelo menos 3 caracteres");
-		}
-	} 
-	
 	public HashMap<Long, Album> getAlbuns() {
 		return albuns; 
-	}
-	
-	public String getCategoria() {
-		return this.categoria;
 	}
 }

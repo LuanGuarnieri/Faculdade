@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Sistema {
 
-	public void criarArtista(Long codPessoa, String nome, LocalDate nasc, String categoria) {
-		new Artista(codPessoa, nome, nasc, categoria);
+	public void criarArtista(Long codPessoa, String nome, String nacionalidade) {
+		new Artista(codPessoa, nome, nacionalidade);
 
 		// depois de criado, que passará pelas validações terá que gravar no banco
 	}

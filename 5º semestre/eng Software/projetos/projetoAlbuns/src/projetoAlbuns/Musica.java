@@ -1,20 +1,19 @@
 package projetoAlbuns;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public class Musica {
 	
 	private Long codMusica;
 	private String titulo;
-	private LocalDate dataCriacao;
+	private float tempo;
 	private List<Artista> artistas;
 	
-	public Musica(Long codMusica, String titulo, LocalDate dataCriacao, List<Artista> artistas) {
+	public Musica(Long codMusica, String titulo, float tempo, List<Artista> artistas) {
 		
 		setCodMusica( codMusica );	
 		setTitulo( titulo );
-		setDataCriacao( dataCriacao );
+		setTempo( tempo );
 		setArtistas( artistas );
 	}
 
@@ -36,17 +35,17 @@ public class Musica {
 		}
 	}
 
-	public void setDataCriacao(LocalDate dataCriacao) {
+	public void setTempo(float tempo) {
 		try {
-			if (dataCriacao.isBefore(LocalDate.now().plusDays(1))) {
-				this.dataCriacao = dataCriacao;
+			if (tempo > 0.0) {
+				this.tempo = tempo;
 			
 			} else {
 				throw new Exception();
 			} 
 			
 		} catch (Exception e) {
-			throw new IllegalArgumentException("Data de criacao da musica invalida");
+			throw new IllegalArgumentException("Tempo de musica invalida");
 		}
 	}
 
@@ -67,8 +66,8 @@ public class Musica {
 		return titulo;
 	}
 	
-	public LocalDate getDataCriacao() {
-		return dataCriacao;
+	public float gettempo() {
+		return tempo;
 	}
 	
 	public List<Artista> getArtistas() {

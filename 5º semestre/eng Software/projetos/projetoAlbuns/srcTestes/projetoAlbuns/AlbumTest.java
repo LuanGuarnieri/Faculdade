@@ -18,8 +18,8 @@ class AlbumTest {
 
 	@BeforeEach
 	void criarAlbum() {
-		Artista art = new Artista(10L, "Luan Guarnieri", LocalDate.of(2002, 2, 14), "Tudo");
-		Artista art2 = new Artista(11L, "Cleiton da Quebrada", LocalDate.of(2002, 2, 13), "Tudo");
+		Artista art = new Artista(10L, "Luan Guarnieri", "Brasileiro");
+		Artista art2 = new Artista(11L, "Cleiton da Quebrada", "Canadense");
 			
 		lista = new ArrayList<>();
 
@@ -44,7 +44,7 @@ class AlbumTest {
 	
 	@Test
 	void inserirMusica() {
-		music = new Musica(1L, "Musica teste", LocalDate.now(), lista);
+		music = new Musica(1L, "Musica teste", 3.5f, lista);
 		alb.adicionarMusica(music);
 		
 		assertEquals(1, alb.getMusicas().size());
@@ -52,7 +52,7 @@ class AlbumTest {
 	
 	@Test
 	void excecaoInserirMusica() {
-		music = new Musica(1L, "Musica teste", LocalDate.now(), lista);
+		music = new Musica(1L, "Musica teste", 2.5f, lista);
 		alb.adicionarMusica(music);
 		
 		assertThrows(IllegalArgumentException.class, () -> {
@@ -62,7 +62,7 @@ class AlbumTest {
 	
 	@Test
 	void excluirMusica() {
-		music = new Musica(1L, "Musica teste", LocalDate.now(), lista);
+		music = new Musica(1L, "Musica teste", 2.0f, lista);
 		alb.adicionarMusica(music);
 		
 		assertTrue(alb.excluirMusica(1L));

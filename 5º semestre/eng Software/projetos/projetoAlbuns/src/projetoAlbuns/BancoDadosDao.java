@@ -8,7 +8,7 @@ public class BancoDadosDao {
 	private final String url = "jdbc:mariadb://localhost:3306";
 	private final String user = "root";
 	private final String senha = "*****";
-	
+	 
 	public Connection getConexao() {
 		
 		if (conexao == null ) {
