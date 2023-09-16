@@ -2,9 +2,7 @@ package controller;
 
 import model.Processo;
 import model.Timers;
-
 import java.util.*;
-
 
 public class AnelLogico {
 
@@ -106,7 +104,6 @@ public class AnelLogico {
 
                     procAux = retornaCoordenador();
 
-                    System.out.println(" AAAAAAA - " + procAux);
                     if(procAux != null) {
                         ajustarVizinhos(processosAtivos.indexOf(procAux), procAux);
                         mostrarConsole(" !!! REMOVENDO COORDENADOR - CD: " + procAux.getCdProcesso() + "!!! ");
@@ -134,15 +131,17 @@ public class AnelLogico {
 
                 procAux = pegarProcessoAtivoAleatorio();
 
+
                 if(procAux != null) {
 
-                System.out.println(" AAA - " + retornaCoordenador());
+                    mostrarConsole(" ¨¨ " + procAux.getCdProcesso() + " - mandando requisição para o coordenador ¨¨ ");
+
                     if(retornaCoordenador() != null) {
                         procAux.mandarRequisicao(Objects.requireNonNull(retornaCoordenador()));
 
                     } else {
                         isVotacao(true);
-                        mostrarConsole(" @@@ ENTRANDO EM VOTAÇÃO @@@ ");
+                        mostrarConsole(" !!!!! COORDENADOR ESTÁ INATIVO !!!!! \n\t\tENTRANDO EM VOTAÇÃO");
 
                         HashMap<Long, Processo> lista = new HashMap<>();
                         procAux.iniciarVotacao(lista);
@@ -157,8 +156,7 @@ public class AnelLogico {
                         setCoordenador(maior);
                         isVotacao(false);
 
-                        mostrarConsole(" @@@ FINALIZANDO VOTAÇÃO @@@ ");
-                        mostrarConsole(" $$$ NOVO COORDENADOR - CD: " + maior + " $$$");
+                        mostrarConsole("\t\tFINALIZANDO VOTAÇÃO\nNOVO COORDENADOR - CD: " + maior);
                     }
                 }
             }
@@ -176,7 +174,6 @@ public class AnelLogico {
     public static void mostrarConsole(String str) {
         System.out.println("--------------------------------------------------------");
         System.out.println(str);
-        System.out.println("--------------------------------------------------------");
     }
 
     private void isVotacao(boolean votacao) {
@@ -255,17 +252,10 @@ public class AnelLogico {
     }
 
     private void setCoordenador(Long cd) {
-        System.out.println("CD: " + cd);
         for(Processo proc : processosAtivos) {
             if(proc.getCdProcesso().equals(cd)) {
                 proc.setIsCoordenador(true);
                 break;
-            }
-        }
-
-        for (Processo p : processosAtivos) {
-            if (p.isCoordenador()) {
-                System.out.println("CD: " + p.getCdProcesso() + " - aa:" + p.isCoordenador());
             }
         }
     }
