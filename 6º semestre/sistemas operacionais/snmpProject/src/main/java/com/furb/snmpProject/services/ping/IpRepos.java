@@ -5,12 +5,17 @@ import com.furb.snmpProject.data.entities.Host;
 import com.furb.snmpProject.data.enums.TipoOID;
 import com.furb.snmpProject.data.repositories.HostRepository;
 import com.furb.snmpProject.services.snmp.RequisicaoSNMP;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 
 public class IpRepos {
+
+    @Autowired
+    private HostRepository hostRepository;
 
     public static boolean ping(String host) {
         try {
@@ -37,28 +42,24 @@ public class IpRepos {
         return ip.matches(ipv4Pattern);
     }
 
-    public static String cadastraIP(String ip, HostRepository repos) {
+    public static Host cadastraIP(String ip, HostRepository repos) {s
+
+        Host host = new Host();
 
         try {
-            if (!validaIPV4(ip)) {
-                return "IPV4 INVÁLIDO";
+            if (validaIPV4(ip) && ping(ip)) {
+
+                host.setIpHost(ip);
+                host.setDsHost(RequisicaoSNMP.requisicaoString(ip, TipoOID.NOME_HOST));
+
+                repos.save(host);
             }
-
-            if (!ping(ip)) {
-                return "HOST NÃO ENCONTRADO NA REDE";
-            }
-
-            Host host = new Host();
-                 host.setIpHost(ip);
-                 host.setDsHost(RequisicaoSNMP.requisicaoString(ip, TipoOID.NOME_HOST));
-
-            repos.save(host);
-
-            return "IPV4 CADASTRADO COM SUCESSO";
 
         } catch (Exception e) {
-            return "HOUVE UM ERRO AO CADASTRAR O IPV4";
+            //TODO ver exceção
         }
+
+        return host;
     }
 
     public static List<HostDTO> retornaIPs(HostRepository repository) {

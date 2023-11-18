@@ -5,10 +5,7 @@ public class InfoMemoriaDTO {
     private float memoriaTotal;
     private float memoriaUsada;
     private String memoriaRam;
-
     private String porcetagemMemoria;
-
-    //TODO criado campo de retorno de memoria total
 
     public InfoMemoriaDTO(float memoriaTotal, float memoriaUsada, String memoriaRam) {
         this.memoriaTotal = memoriaTotal;

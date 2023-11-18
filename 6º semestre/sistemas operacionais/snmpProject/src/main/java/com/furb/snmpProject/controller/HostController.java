@@ -7,10 +7,7 @@ import com.furb.snmpProject.data.repositories.HostRepository;
 import com.furb.snmpProject.services.ping.IpRepos;
 import com.furb.snmpProject.services.snmp.TrataRequisicaoSNMP;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -31,7 +28,8 @@ public class HostController {
     }
 
     @PostMapping("/cadastro")
-    public String cadastrarIP(@RequestBody String ip) {
+    public Host cadastrarIP(@RequestBody String ip) {
         return IpRepos.cadastraIP(ip.replaceAll("[^0-9.]", ""), hostRepository);
     }
+
 }

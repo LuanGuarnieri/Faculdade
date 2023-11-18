@@ -2,6 +2,7 @@ package com.furb.snmpProject.services.snmp;
 
 import com.furb.snmpProject.data.dto.*;
 import com.furb.snmpProject.data.enums.TipoOID;
+import com.furb.snmpProject.services.logs.Log;
 import com.furb.snmpProject.services.ping.IpRepos;
 import org.json.simple.JSONObject;
 import org.snmp4j.smi.VariableBinding;
@@ -49,7 +50,6 @@ public class TrataRequisicaoSNMP {
             infoSistema.setSistemaOperacional(retorno);
 
         } catch (Exception e) {
-            //TODO tratar questão de erro
             throw new RuntimeException(e);
         }
     }
@@ -68,7 +68,6 @@ public class TrataRequisicaoSNMP {
             }
 
         } catch (Exception e) {
-            //TODO tratar exceção do desc sistema
             throw new RuntimeException(e);
         }
     }
@@ -120,7 +119,6 @@ public class TrataRequisicaoSNMP {
         InfoHostDTO infoHost = new InfoHostDTO();
 
         nomeHost(ip, infoHost);
-        //dataHoraHost(ip, jsonAux); TODO AJUSTAR
         tempoAtividade(ip, infoHost);
 
         return infoHost;
@@ -135,22 +133,9 @@ public class TrataRequisicaoSNMP {
             }
 
         } catch (Exception e) {
-            //TODO tratar exceções
             throw new RuntimeException(e);
         }
 
-    }
-
-    private static void dataHoraHost(String ip, JSONObject jsonAux) {
-        try {
-            retorno = RequisicaoSNMP.requisicaoString(ip, TipoOID.DATA_HORA_HOST);
-
-            System.out.println(retorno);
-
-        } catch (Exception e) {
-            //TODO TRATAR EXCEÇÕES
-            throw new RuntimeException(e);
-        }
     }
 
     private static void tempoAtividade(String ip, InfoHostDTO infoHost) {
@@ -167,7 +152,6 @@ public class TrataRequisicaoSNMP {
            }
 
         } catch (Exception e) {
-            //TODO TRATAR EXCEÇÃO
             throw new RuntimeException(e);
         }
 
@@ -196,7 +180,6 @@ public class TrataRequisicaoSNMP {
             }
 
         } catch (Exception e) {
-            //TODO TRATAR EXCEÇÃO
             throw new RuntimeException(e);
         }
     }
@@ -229,7 +212,7 @@ public class TrataRequisicaoSNMP {
             }
 
          } catch (Exception e) {
-             //TODO TRATAR EXCEÇÃO
+
          }
     }
 
@@ -268,7 +251,6 @@ public class TrataRequisicaoSNMP {
            listaProcessos.add(processo);
        }
         } catch (Exception e) {
-            //TODO TRATAR EXCEÇÃO
             throw new RuntimeException(e);
         }
 
@@ -290,20 +272,12 @@ public class TrataRequisicaoSNMP {
     }
 
     private static String retornaTipoProcesso(int num) {
-        String aux = "DESCONHECIDO";
-        switch (num) {
-            case 2:
-                aux = "SISTEMA OPERACIONAL";
-                break;
-
-            case 3:
-                aux = "DRIVER";
-                break;
-
-            case 4:
-                aux = "APLICAÇÃO";
-                break;
-        }
+        String aux = switch (num) {
+            case 2 ->  "SISTEMA OPERACIONAL";
+            case 3 ->  "DRIVER";
+            case 4 ->  "APLICAÇÃO";
+            default -> "DESCONHECIDO";
+        };
 
         return aux;
     }
@@ -325,4 +299,5 @@ public class TrataRequisicaoSNMP {
 
         return BigDecimal.valueOf(numero).divide(divisor, 2, RoundingMode.HALF_UP).floatValue();
     }
+
 }
