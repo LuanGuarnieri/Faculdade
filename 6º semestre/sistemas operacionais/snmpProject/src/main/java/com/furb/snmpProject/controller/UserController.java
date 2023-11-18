@@ -2,7 +2,6 @@ package com.furb.snmpProject.controller;
 
 import com.furb.snmpProject.data.entities.Usuario;
 import com.furb.snmpProject.data.repositories.UsuarioRepository;
-import com.furb.snmpProject.services.logs.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -2,9 +2,7 @@ package com.furb.snmpProject.services.snmp;
 
 import com.furb.snmpProject.data.dto.*;
 import com.furb.snmpProject.data.enums.TipoOID;
-import com.furb.snmpProject.services.logs.Log;
 import com.furb.snmpProject.services.ping.IpRepos;
-import org.json.simple.JSONObject;
 import org.snmp4j.smi.VariableBinding;
 import org.snmp4j.util.TableEvent;
 

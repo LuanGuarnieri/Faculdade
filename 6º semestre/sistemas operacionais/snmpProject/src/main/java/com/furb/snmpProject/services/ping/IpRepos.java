@@ -6,12 +6,14 @@ import com.furb.snmpProject.data.enums.TipoOID;
 import com.furb.snmpProject.data.repositories.HostRepository;
 import com.furb.snmpProject.services.snmp.RequisicaoSNMP;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class IpRepos {
 
     @Autowired
@@ -42,7 +44,7 @@ public class IpRepos {
         return ip.matches(ipv4Pattern);
     }
 
-    public static Host cadastraIP(String ip, HostRepository repos) {s
+    public static Host cadastraIP(String ip, HostRepository repos) {
 
         Host host = new Host();
 
