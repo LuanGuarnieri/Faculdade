@@ -2,7 +2,7 @@
 > [!NOTE]
 > ### Implementação do algotirmo de berkeley utilizando java 21 e java RMI
 
-Consiste em o servidor e o cliente implementando a interface que extende da Remote, sendo o meio de comunicação entre eles usando o RMI, e ao startar um cliente, é adicionado na lista de clientes no servidor e depois disso cabe ao servidor em um determinado de tempo fazer chamadas para os clientes e obter o tempo de diferença em segundos, calcular a media do tempo, e depois requisitar que os clientes sincronizem com o novo horário.
+> Consiste em o servidor e o cliente implementando a interface que extende da Remote, sendo o meio de comunicação entre eles usando o RMI, e ao startar um cliente, é adicionado na lista de clientes no servidor e depois > disso cabe ao servidor em um determinado de tempo fazer chamadas para os clientes e obter o tempo de diferença em segundos, calcular a media do tempo, e depois requisitar que os clientes sincronizem com o novo horário.
 
 > [!IMPORTANT]
 > **Primeiro deve-se rodar o servidor, para criar o objeto RMI**
