@@ -18,7 +18,8 @@
 > * Volte no prompt anterior (que rodou o `rmiregistry`)
 >
 > `java TimeServer.java` - irá startar o servidor
-> * **Importante** cada cliente deverá ser startado em outro prompt de comando, então abra outro prompt na mesma pasta dos .class gerados
+> * __**Importante cada cliente deverá ser startado em outro prompt, então abra outro prompt na mesma pasta dos .class gerados**__
+>   
 > `java TimeClient.java` - irá startar o cliente
 >
 > Logo depois verá a mágica acontecer, como abaixo
