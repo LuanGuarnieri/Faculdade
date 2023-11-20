@@ -15,40 +15,6 @@ import java.util.List;
 
 public class RequisicaoSNMP {
 
-    public static void main(String[] args) throws Exception {
-        CommunityTarget target = new CommunityTarget();
-        target.setCommunity(new OctetString("public")); // Substitua pela sua comunidade SNMP
-        target.setVersion(SnmpConstants.version2c);
-        target.setAddress(new UdpAddress("192.168.1.10/161")); // Substitua pelo endereço e porta do seu agente SNMP
-        target.setRetries(2);
-        target.setTimeout(1500);
-
-        TransportMapping<? extends Address> transport = new DefaultUdpTransportMapping();
-        Snmp snmp = new Snmp(transport);
-        transport.listen();
-
-        TableUtils tableUtils = new TableUtils(snmp, new DefaultPDUFactory());
-        OID[] columns = new OID[] { new OID("1.3.6.1.2.1.25.4.2.1.2") }; // OID da coluna de nomes de processos
-
-        List<TableEvent> events =requisicaoTabela("192.168.1.10", TipoOID.LISTA_PROCESSOS);
-        if (events != null && !events.isEmpty()) {
-            for (TableEvent event : events) {
-                VariableBinding[] vb = event.getColumns();
-                if (vb != null) {
-                    for (VariableBinding variable : vb) {
-                        System.out.println(variable.getVariable().toString());
-                    }
-                }
-            }
-        } else {
-            System.out.println("Não foi possível obter a tabela de processos.");
-        }
-
-        snmp.close();
-
-    }
-
-
     private static final String COMUNIDADE = "public";
     private static final int PORT = 161;
 
