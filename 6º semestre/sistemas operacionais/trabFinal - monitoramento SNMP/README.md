@@ -12,7 +12,7 @@
 > - [x] Ter [Angular CLI 16.2](https://angular.io/cli) instalado
 >    
 > ## Configurações
-> **Antes de tudo, deve-se configurar e ativar o protocolo SMNP nas máquinas clientes e servidor -> [Configurações](https://github.com/mariaedk/snmp-sistemas-operacionais/blob/main/read/config.md)**
+> **Antes de tudo, deve-se configurar e ativar o protocolo SMNP nas máquinas clientes e servidor -> [Configurações](https://github.com/LuanGuarnieri/Faculdade/blob/main/6%C2%BA%20semestre/sistemas%20operacionais/trabFinal%20-%20monitoramento%20SNMP/read/config.md)**
 
 > [!warning]
 > Logo depois de configurar as máquinas, é necessário clonar o repositório em uma pasta do seu computador!
