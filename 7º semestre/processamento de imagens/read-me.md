@@ -1,1 +1,1 @@
-area para arquivos de processamento de imagens
+area para arquivos da materia de processamento de imagens
